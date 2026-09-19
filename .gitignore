@@ -3,5 +3,6 @@ dist/
 .env
 .env.local
 .firebase/
+.npm-cache/
 *.log
 site.tar.gz
