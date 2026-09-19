@@ -114,5 +114,3 @@ exports.processCameraClip = functions.storage.object().onFinalize(async (object)
 7. Cloud Function real conectada a Cloud Vision (si sobra tiempo; si no, se explica en el pitch como el mecanismo real de producción y se muestra el código en una slide)
 
 ---
-
-## PROMPT PARA PEGAR EN CODEX
