@@ -1,0 +1,14 @@
+rules_version = '2';
+service firebase.storage {
+ match /b/{bucket}/o {
+  function member(id) { return request.auth != null && firestore.exists(/databases/(default)/documents/communities/$(id)/members/$(request.auth.uid)); }
+  // Only trusted gateway service accounts and Functions (Admin SDK/IAM) can access raw clips.
+  match /cameras/{allPaths=**} { allow read, write: if false; }
+  match /vehiclePhotos/{communityId}/{uid}/{file} {
+   allow read: if member(communityId);
+   allow create: if member(communityId) && request.auth.uid == uid && request.resource.size < 5 * 1024 * 1024 && request.resource.contentType.matches('image/.*');
+   allow update, delete: if false;
+  }
+  match /{allPaths=**} { allow read, write: if false; }
+ }
+}

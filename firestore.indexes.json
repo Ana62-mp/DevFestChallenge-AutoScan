@@ -1,0 +1,1 @@
+{"indexes":[{"collectionGroup":"vehicles","queryScope":"COLLECTION","fields":[{"fieldPath":"communityId","order":"ASCENDING"},{"fieldPath":"plate","order":"ASCENDING"}]}],"fieldOverrides":[]}
